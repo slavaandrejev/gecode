@@ -35,27 +35,27 @@ namespace Gecode {
 
   forceinline FloatNum
   pi_half_lower(void) {
-    return gecode_boost::numeric::interval_lib::constants::pi_half_lower<FloatNum>();
+    return boost::numeric::interval_lib::constants::pi_half_lower<FloatNum>();
   }
   forceinline FloatNum
   pi_half_upper(void) {
-    return gecode_boost::numeric::interval_lib::constants::pi_half_upper<FloatNum>();
+    return boost::numeric::interval_lib::constants::pi_half_upper<FloatNum>();
   }
   forceinline FloatNum
   pi_lower(void) {
-    return gecode_boost::numeric::interval_lib::constants::pi_lower<FloatNum>();
+    return boost::numeric::interval_lib::constants::pi_lower<FloatNum>();
   }
   forceinline FloatNum
   pi_upper(void) {
-    return gecode_boost::numeric::interval_lib::constants::pi_upper<FloatNum>();
+    return boost::numeric::interval_lib::constants::pi_upper<FloatNum>();
   }
   forceinline FloatNum
   pi_twice_lower(void) {
-    return gecode_boost::numeric::interval_lib::constants::pi_twice_lower<FloatNum>();
+    return boost::numeric::interval_lib::constants::pi_twice_lower<FloatNum>();
   }
   forceinline FloatNum
   pi_twice_upper(void) {
-    return gecode_boost::numeric::interval_lib::constants::pi_twice_upper<FloatNum>();
+    return boost::numeric::interval_lib::constants::pi_twice_upper<FloatNum>();
   }
 }
 

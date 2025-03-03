@@ -715,6 +715,7 @@ namespace Gecode {
 
     forceinline int
     StatePool::state(StatePoolAllocator& spm, PosSet* ps) {
+      [[maybe_unused]]
       int d = 0;
       StateNode** p = nullptr;
       StateNode*  n = &root;

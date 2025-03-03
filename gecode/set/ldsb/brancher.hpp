@@ -101,6 +101,7 @@ namespace Gecode { namespace Set { namespace LDSB {
     // Calculate intersection and difference.
     IntArgs intersection;
     IntArgs difference;
+    [[maybe_unused]]
     int n = 0;
     for (int i = s->values.next(s->values.offset()) ;
          i <= s->values.max_bit() ; i = s->values.next(i+1)) {
@@ -290,7 +291,7 @@ namespace Gecode { namespace Set { namespace LDSB {
           ::post(home,x,vs,vsc,syms,nsyms,bf,vvp);
       }
     }
-  }      
+  }
 
 }}}
 

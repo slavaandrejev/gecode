@@ -30,97 +30,165 @@
  *
  */
 
+#mesondefine GECODE_BUILD_SUPPORT
+#mesondefine GECODE_BUILD_KERNEL
+#mesondefine GECODE_BUILD_SEARCH
+#mesondefine GECODE_BUILD_INT
+#mesondefine GECODE_BUILD_SET
+#mesondefine GECODE_BUILD_FLOAT
+#mesondefine GECODE_BUILD_MINIMODEL
+#mesondefine GECODE_BUILD_FLATZINC
+#mesondefine GECODE_BUILD_DRIVER
+#mesondefine GECODE_BUILD_GIST
+
 /* Whether to build with default memory allocator */
-#undef GECODE_ALLOCATOR
+#mesondefine GECODE_ALLOCATOR
 
 /* Whether to include audit code */
-#undef GECODE_AUDIT
+#mesondefine GECODE_AUDIT
 
 /* User-defined prefix of dll names */
-#undef GECODE_DLL_USERPREFIX
+#mesondefine GECODE_DLL_USERPREFIX
 
 /* User-defined suffix of dll names */
-#undef GECODE_DLL_USERSUFFIX
+#mesondefine GECODE_DLL_USERSUFFIX
 
 /* Supported version of FlatZinc */
-#undef GECODE_FLATZINC_VERSION
+#mesondefine GECODE_FLATZINC_VERSION
 
 /* max freelist size on 32 bit platforms */
-#undef GECODE_FREELIST_SIZE_MAX32
+#mesondefine GECODE_FREELIST_SIZE_MAX32
 
 /* max freelist size on 64 bit platforms */
-#undef GECODE_FREELIST_SIZE_MAX64
+#mesondefine GECODE_FREELIST_SIZE_MAX64
 
 /* Whether gcc understands visibility attributes */
-#undef GECODE_GCC_HAS_CLASS_VISIBILITY
+#mesondefine GECODE_GCC_HAS_CLASS_VISIBILITY
 
 /* whether __builtin_ffsll is available */
-#undef GECODE_HAS_BUILTIN_FFSLL
+#mesondefine GECODE_HAS_BUILTIN_FFSLL
 
 /* whether __builtin_popcountll is available */
-#undef GECODE_HAS_BUILTIN_POPCOUNTLL
+#mesondefine GECODE_HAS_BUILTIN_POPCOUNTLL
 
 /* Whether counting-based search support available */
-#undef GECODE_HAS_CBS
+#mesondefine GECODE_HAS_CBS
 
 /* Whether CPProfiler support available */
-#undef GECODE_HAS_CPPROFILER
+#mesondefine GECODE_HAS_CPPROFILER
 
 /* Whether to build FLOAT variables */
-#undef GECODE_HAS_FLOAT_VARS
+#mesondefine GECODE_HAS_FLOAT_VARS
 
 /* Whether Gist is available */
-#undef GECODE_HAS_GIST
+#mesondefine GECODE_HAS_GIST
 
 /* Whether to build INT variables */
-#undef GECODE_HAS_INT_VARS
+#mesondefine GECODE_HAS_INT_VARS
 
 /* Whether MPFR is available */
-#undef GECODE_HAS_MPFR
+#mesondefine GECODE_HAS_MPFR
 
 /* Whether we have mtrace for memory leak debugging */
-#undef GECODE_HAS_MTRACE
+#mesondefine GECODE_HAS_MTRACE
 
 /* Whether Qt is available */
-#undef GECODE_HAS_QT
+#mesondefine GECODE_HAS_QT
 
 /* Whether to build SET variables */
-#undef GECODE_HAS_SET_VARS
+#mesondefine GECODE_HAS_SET_VARS
 
 /* Gecode version */
-#undef GECODE_LIBRARY_VERSION
+#mesondefine GECODE_LIBRARY_VERSION
 
 /* Heap memory alignment */
-#undef GECODE_MEMORY_ALIGNMENT
+#mesondefine GECODE_MEMORY_ALIGNMENT
 
 /* How to check allocation size */
-#undef GECODE_MSIZE
+#mesondefine GECODE_MSIZE
 
 /* Whether to track peak heap size */
-#undef GECODE_PEAKHEAP
+#mesondefine GECODE_PEAKHEAP
 
 /* Whether we need malloc.h */
-#undef GECODE_PEAKHEAP_MALLOC_H
+#mesondefine GECODE_PEAKHEAP_MALLOC_H
 
 /* Whether we need malloc/malloc.h */
-#undef GECODE_PEAKHEAP_MALLOC_MALLOC_H
+#mesondefine GECODE_PEAKHEAP_MALLOC_MALLOC_H
 
 /* Whether we are compiling static libraries */
-#undef GECODE_STATIC_LIBS
+#mesondefine GECODE_STATIC_LIBS
 
 /* Whether we are compiling with thread support */
-#undef GECODE_HAS_THREADS
+#mesondefine GECODE_HAS_THREADS
 
 /* Whether to use unfair mutexes on macOS */
-#undef GECODE_USE_OSX_UNFAIR_MUTEX
+#mesondefine GECODE_USE_OSX_UNFAIR_MUTEX
 
 /* Gecode version */
-#undef GECODE_VERSION
+#mesondefine GECODE_VERSION
 
 /* Gecode version */
-#undef GECODE_VERSION_NUMBER
+#mesondefine GECODE_VERSION_NUMBER
 
-/* How to tell the compiler to really, really inline */
-#undef forceinline
+/* Define to 1 if you have the `getpagesize' function. */
+#mesondefine HAVE_GETPAGESIZE
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#mesondefine HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#mesondefine HAVE_MEMORY_H
+
+/* Define to 1 if you have a working `mmap' system call. */
+#mesondefine HAVE_MMAP
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#mesondefine HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#mesondefine HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#mesondefine HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#mesondefine HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/param.h> header file. */
+#mesondefine HAVE_SYS_PARAM_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#mesondefine HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#mesondefine HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#mesondefine HAVE_UNISTD_H
+
+/* Define to the address where bug reports for this package should be sent. */
+#mesondefine PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#mesondefine PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#mesondefine PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#mesondefine PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#mesondefine PACKAGE_URL
+
+/* Define to the version of this package. */
+#mesondefine PACKAGE_VERSION
+
+/* The size of `int', as computed by sizeof. */
+#mesondefine SIZEOF_INT
+
+/* Define to 1 if you have the ANSI C header files. */
+#mesondefine STDC_HEADERS
 
 // STATISTICS: support-any

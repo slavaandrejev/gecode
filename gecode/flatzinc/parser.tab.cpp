@@ -433,7 +433,7 @@ void initfg(ParserState* pp) {
       pp->fg->restart_data.init();
       pp->fg->on_restart_sv = SetVarArray(*(pp->fg), sv_size);
       int base = 0;
-      
+
       pp->fg->restart_data().on_restart_sv_sol = pp->sol_set.size();
       for (size_t i = 0; i < pp->sol_set.size(); ++i) {
         pp->fg->on_restart_sv[base + i] = pp->fg->sv[(pp->sol_set[i][0])];
@@ -470,7 +470,7 @@ void initfg(ParserState* pp) {
         pp->fg->on_restart_fv[base + pp->sol_float.size() + i] = pp->fg->fv[(pp->sol_float[i][1])];
       }
       base += pp->sol_float.size() * 2;
-      
+
       pp->fg->restart_data().last_val_float = std::vector<FloatVal>(pp->last_val_float.size());
       FloatVarArgs last_val_args;
       for (size_t i = 0; i < pp->last_val_float.size(); ++i) {
@@ -2037,6 +2037,7 @@ YY_INITIAL_VALUE (static YYSTYPE yyval_default;)
 YYSTYPE yylval YY_INITIAL_VALUE (= yyval_default);
 
     /* Number of syntax errors so far.  */
+    [[maybe_unused]]
     int yynerrs = 0;
 
     yy_state_fast_t yystate = 0;

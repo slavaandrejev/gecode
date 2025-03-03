@@ -118,13 +118,13 @@ namespace Gecode { namespace Search { namespace Par {
     /// Mutex for access to termination information
     Support::Mutex _m_term;
     /// Number of workers that have not yet acknowledged termination
-    volatile unsigned int _n_term_not_ack;
+    unsigned int _n_term_not_ack;
     /// Event for termination acknowledgment
     Support::Event _e_term_ack;
     /// Mutex for waiting for termination
     Support::Mutex _m_wait_terminate;
     /// Number of not yet terminated workers
-    volatile unsigned int _n_not_terminated;
+    unsigned int _n_not_terminated;
     /// Event for termination (all threads have terminated)
     Support::Event _e_terminate;
   public:
@@ -144,7 +144,7 @@ namespace Gecode { namespace Search { namespace Par {
     /// Mutex for access to reset information
     Support::Mutex _m_reset;
     /// Number of workers that have not yet acknowledged reset
-    volatile unsigned int _n_reset_not_ack;
+    unsigned int _n_reset_not_ack;
     /// Event for reset acknowledgment started
     Support::Event e_reset_ack_start;
     /// Event for reset acknowledgment stopped
@@ -170,9 +170,9 @@ namespace Gecode { namespace Search { namespace Par {
     /// Queue of solutions
     Support::DynamicQueue<Space*,Heap> solutions;
     /// Number of busy workers
-    volatile unsigned int n_busy;
+    unsigned int n_busy;
     /// Whether a worker had been stopped
-    volatile bool has_stopped;
+    bool has_stopped;
     /// Whether search state changed such that signal is needed
     bool signal(void) const;
   public:

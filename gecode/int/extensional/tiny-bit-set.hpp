@@ -49,8 +49,8 @@ namespace Gecode { namespace Int { namespace Extensional {
       for (unsigned int i=0U; i<n; i++)
         _bits[i].init(true);
       /// Clear unused suffix bits
-        for (unsigned int i=n; i<sz; i++)
-          _bits[i].init(false);
+      for (unsigned int i=n; i<sz; i++)
+        _bits[i].init(false);
   }
 
   template<unsigned int sz>
@@ -63,7 +63,7 @@ namespace Gecode { namespace Int { namespace Extensional {
       _bits[i] = sbs._bits[i];
     assert(!empty());
   }
-      
+
   template<unsigned int sz>
   template<class IndexType>
   forceinline
@@ -123,7 +123,7 @@ namespace Gecode { namespace Int { namespace Extensional {
       _bits[i].init(false);
     assert(empty());
   }
-  
+
   template<unsigned int sz>
   forceinline bool
   TinyBitSet<sz>::intersects(const BitSetData* b) {
@@ -142,7 +142,7 @@ namespace Gecode { namespace Int { namespace Extensional {
         (BitSetData::a(_bits[i],b[i]).ones());
     return o;
   }
-    
+
   template<unsigned int sz>
   forceinline unsigned long long int
   TinyBitSet<sz>::ones(void) const {
@@ -151,14 +151,14 @@ namespace Gecode { namespace Int { namespace Extensional {
       o += static_cast<unsigned long long int>(_bits[i].ones());
     return o;
   }
-    
+
   template<unsigned int sz>
   forceinline unsigned long long int
   TinyBitSet<sz>::bits(void) const {
     return (static_cast<unsigned long long int>(sz) *
             static_cast<unsigned long long int>(BitSetData::bpb));
   }
-    
+
   template<unsigned int sz>
   forceinline bool
   TinyBitSet<sz>::empty(void) const { // Linear complexity...
@@ -179,7 +179,7 @@ namespace Gecode { namespace Int { namespace Extensional {
       GECODE_NEVER;
       return 0U;
   }
-      
+
   template<unsigned int sz>
   forceinline unsigned int
   TinyBitSet<sz>::words(void) const {

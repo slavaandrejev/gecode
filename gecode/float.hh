@@ -77,7 +77,7 @@
 #endif
 
 // Include interval implementation
-#include <gecode/third-party/boost/numeric/interval.hpp>
+#include <boost/numeric/interval.hpp>
 
 /**
  * \namespace Gecode::Float
@@ -135,13 +135,13 @@ namespace Gecode { namespace Float {
    *
    */
   /// Rounding Base class (safe version)
-  typedef gecode_boost::numeric::interval_lib::save_state< gecode_boost::numeric::interval_lib::rounded_arith_std<FloatNum> >
+  typedef boost::numeric::interval_lib::save_state< boost::numeric::interval_lib::rounded_arith_std<FloatNum> >
 	RoundingBase;
 
 #else
 
   /// Rounding Base class (optimized version)
-  typedef gecode_boost::numeric::interval_lib::rounded_arith_opp<FloatNum>
+  typedef boost::numeric::interval_lib::rounded_arith_opp<FloatNum>
     RoundingBase;
 
 #endif
@@ -413,13 +413,13 @@ namespace Gecode {
     friend FloatVal Float::hull(const FloatNum& x, const FloatNum& y);
   protected:
     /// Used rounding policies
-    typedef gecode_boost::numeric::interval_lib::save_state<Float::Rounding> R;
+    typedef boost::numeric::interval_lib::save_state<Float::Rounding> R;
     /// Used checking policy
-    typedef gecode_boost::numeric::interval_lib::checking_strict<FloatNum> P;
+    typedef boost::numeric::interval_lib::checking_strict<FloatNum> P;
     /// Implementation type for float value
-    typedef gecode_boost::numeric::interval
+    typedef boost::numeric::interval
       <FloatNum,
-       gecode_boost::numeric::interval_lib::policies<R, P> >
+       boost::numeric::interval_lib::policies<R, P> >
     FloatValImpType;
     /// Implementation of float value
     FloatValImpType x;
@@ -1331,7 +1331,7 @@ namespace Gecode {
    * \li Throws an exception of type Float::ValueMixedSign, if a
    *     coefficient has mixed signs (that is, the lower bound is strictly
    *     negative and the upper bound is strictly positive).
-   *  
+   *
    * \ingroup TaskModelFloatLI
    */
   GECODE_FLOAT_EXPORT void
@@ -1347,7 +1347,7 @@ namespace Gecode {
    * \li Throws an exception of type Float::ValueMixedSign, if a
    *     coefficient has mixed signs (that is, the lower bound is strictly
    *     negative and the upper bound is strictly positive).
-   *  
+   *
    * \ingroup TaskModelFloatLI
    */
   GECODE_FLOAT_EXPORT void
@@ -1363,7 +1363,7 @@ namespace Gecode {
    * \li Throws an exception of type Float::ValueMixedSign, if a
    *     coefficient has mixed signs (that is, the lower bound is strictly
    *     negative and the upper bound is strictly positive).
-   *  
+   *
    * \ingroup TaskModelFloatLI
    */
   GECODE_FLOAT_EXPORT void
@@ -1379,7 +1379,7 @@ namespace Gecode {
    * \li Throws an exception of type Float::ValueMixedSign, if a
    *     coefficient has mixed signs (that is, the lower bound is strictly
    *     negative and the upper bound is strictly positive).
-   *  
+   *
    * \ingroup TaskModelFloatLI
    */
   GECODE_FLOAT_EXPORT void

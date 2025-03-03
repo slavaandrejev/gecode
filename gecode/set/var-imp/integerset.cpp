@@ -300,6 +300,7 @@ namespace Gecode { namespace Set {
       return false;
     }
 
+    [[maybe_unused]]
     RangeList *p=nullptr;
     RangeList *c=fst();
 
