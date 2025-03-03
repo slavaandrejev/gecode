@@ -37,8 +37,8 @@
  *
  */
 
-#ifndef __GECODE_INT_GCC_HH__
-#define __GECODE_INT_GCC_HH__
+#ifndef GECODE_INT_GCC_HH
+#define GECODE_INT_GCC_HH
 
 #include <gecode/int.hh>
 
@@ -73,7 +73,7 @@ namespace Gecode { namespace Int { namespace GCC {
   public:
     /// Copy propagator during cloning
     virtual Actor* copy(Space& home);
-    /// Cost funtion returning high linear
+    /// Cost function returning high linear
     virtual PropCost cost(const Space& home, const ModEventDelta& med) const;
     /// Schedule function
     virtual void reschedule(Space& home);
@@ -90,7 +90,7 @@ namespace Gecode { namespace Int { namespace GCC {
    * \brief Bounds consistent global cardinality propagator
    *
    * The algorithm is taken from:
-   *    Claude-Guy Quimper, Peter van Beek, Alejandro López-Ortiz,
+   *    Claude-Guy Quimper, Peter van Beek, Alejandro LÃ³pez-Ortiz,
    *    Alexander Golynski, and Sayyed Bashir Sadjad. An Efficient
    *    Bounds Consistency Algorithm for the Global Cardinality
    *    Constraint, CP 2003, pages 600-614.
@@ -134,7 +134,7 @@ namespace Gecode { namespace Int { namespace GCC {
      */
     bool card_fixed;
     /**
-     * \brief Stores whether the minium required occurences of
+     * \brief Stores whether the minimum required occurrences of
      *        the cardinalities are all zero. If so, we do not need
      *        to perform lower bounds propagation.
      */
@@ -191,7 +191,7 @@ namespace Gecode { namespace Int { namespace GCC {
   public:
     /// Copy propagator during cloning
     virtual Actor* copy(Space& home);
-    /// Cost funtion
+    /// Cost function
     virtual PropCost cost(const Space& home, const ModEventDelta& med) const;
     /// Schedule function
     virtual void reschedule(Space& home);
@@ -208,7 +208,7 @@ namespace Gecode { namespace Int { namespace GCC {
    * \brief Domain consistent global cardinality propagator
    *
    * The algorithm is taken from:
-   *   Claude-Guy Quimper, Peter van Beek, Alejandro López-Ortiz,
+   *   Claude-Guy Quimper, Peter van Beek, Alejandro LÃ³pez-Ortiz,
    *   and Alexander Golynski. Improved Algorithms for the
    *   Global Cardinality Constraint, CP 2004, pages 542-556.
    *

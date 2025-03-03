@@ -33,8 +33,8 @@
  *
  */
 
-#ifndef __GECODE_FLOAT_BRANCH_HH__
-#define __GECODE_FLOAT_BRANCH_HH__
+#ifndef GECODE_FLOAT_BRANCH_HH
+#define GECODE_FLOAT_BRANCH_HH
 
 #include <gecode/float.hh>
 
@@ -58,7 +58,7 @@ namespace Gecode { namespace Float { namespace Branch {
    */
 
   /**
-   * \brief Merit class for mimimum
+   * \brief Merit class for minimum
    *
    * Requires \code #include <gecode/float/branch.hh> \endcode
    * \ingroup FuncFloatViewSel

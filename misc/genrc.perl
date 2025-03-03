@@ -59,7 +59,7 @@ $dir = $ARGV[$i++];
 # File for which a resource template is to be generated
 $file = $ARGV[$i++];
 
-# Source files follows from folloeing argument positions
+# Source files follows from following argument positions
 $n_srcfiles = 0;
 while ($arg = $ARGV[$i]) {
   $srcfile[$n_srcfiles] = "$dir/$arg";
@@ -172,7 +172,7 @@ if ($file =~ /Gecode(.*)-([0-9]+-[0-9]+-[0-9]+-[rd]-.+)\.dll$/) {
     close SRCFILE;
     $description = "Gecode example: $example";
   } else {
-    die "Illegal file";
+    die "Illegal file $file";
   }
 }
 

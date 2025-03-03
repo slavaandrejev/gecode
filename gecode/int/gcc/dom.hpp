@@ -43,9 +43,9 @@ namespace Gecode { namespace Int { namespace GCC {
    * Analogously to "gcc/bnd.hpp" we split the algorithm
    * in two parts:
    *   1) the UBC (Upper Bound Constraint) stating that there are
-   *      at most k[i].max() occurences of the value v_i
+   *      at most k[i].max() occurrences of the value v_i
    *   2) the LBC (Lower Bound Constraint) stating that there are
-   *      at least k[i].min() occurences of the value v_i
+   *      at least k[i].min() occurrences of the value v_i
    *
    * The algorithm proceeds in 5 STEPS:
    *
@@ -67,7 +67,7 @@ namespace Gecode { namespace Int { namespace GCC {
   Dom<Card>::Dom(Home home, ViewArray<IntView>& x0,
                  ViewArray<Card>& k0, bool cf)
     : Propagator(home), x(x0),  y(home, x0),
-      k(k0), vvg(NULL), card_fixed(cf){
+      k(k0), vvg(nullptr), card_fixed(cf){
     // y is used for bounds propagation since prop_bnd needs all variables
     // values within the domain bounds
     x.subscribe(home, *this, PC_INT_DOM);
@@ -77,7 +77,7 @@ namespace Gecode { namespace Int { namespace GCC {
   template<class Card>
   forceinline
   Dom<Card>::Dom(Space& home, Dom<Card>& p)
-    : Propagator(home, p), vvg(NULL), card_fixed(p.card_fixed) {
+    : Propagator(home, p), vvg(nullptr), card_fixed(p.card_fixed) {
     x.update(home, p.x);
     y.update(home, p.y);
     k.update(home, p.k);
@@ -138,7 +138,7 @@ namespace Gecode { namespace Int { namespace GCC {
       for (int i = k.size(); i--; ) {
         if ((k[i].min() > count[i]) || (count[i] > k[i].max()))
           return ES_FAILED;
-        // the solution contains ci occurences of value k[i].card();
+        // the solution contains ci occurrences of value k[i].card();
         if (Card::propagate)
           GECODE_ME_CHECK(k[i].eq(home, count[i]));
       }
@@ -175,7 +175,7 @@ namespace Gecode { namespace Int { namespace GCC {
       return home.ES_SUBSUMED(*this);
     }
 
-    if (vvg == NULL) {
+    if (vvg == nullptr) {
       int smin = 0;
       int smax = 0;
       for (int i=k.size(); i--; )
@@ -267,7 +267,7 @@ namespace Gecode { namespace Int { namespace GCC {
       for (int i = k.size(); i--; ) {
         if ((k[i].min() > count[i]) || (count[i] > k[i].max()))
           return ES_FAILED;
-        // the solution contains count[i] occurences of value k[i].card();
+        // the solution contains count[i] occurrences of value k[i].card();
         if (Card::propagate)
           GECODE_ME_CHECK(k[i].eq(home,count[i]));
       }

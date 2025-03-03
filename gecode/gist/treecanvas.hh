@@ -44,6 +44,12 @@
 
 #include <gecode/gist/visualnode.hh>
 
+#if QT_VERSION >= 0x060000
+typedef QRecursiveMutex GecodeQMutex;
+#else
+typedef QMutex GecodeQMutex;
+#endif
+
 namespace Gecode {  namespace Gist {
 
   /// \brief Parameters for the tree layout
@@ -242,10 +248,10 @@ namespace Gecode {  namespace Gist {
     /// Signals that a bookmark has been removed
     void removedBookmark(int idx);
   protected:
-    /// Mutex for synchronizing acccess to the tree
-    QMutex mutex;
+    /// Mutex for synchronizing access to the tree
+    GecodeQMutex mutex;
     /// Mutex for synchronizing layout and drawing
-    QMutex layoutMutex;
+    GecodeQMutex layoutMutex;
     /// Search engine thread
     SearcherThread searcher;
     /// Flag signalling the search to stop

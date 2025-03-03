@@ -33,8 +33,8 @@
  *
  */
 
-#ifndef __GECODE_INT_IDX_VIEW_HH__
-#define __GECODE_INT_IDX_VIEW_HH__
+#ifndef GECODE_INT_IDX_VIEW_HH
+#define GECODE_INT_IDX_VIEW_HH
 
 #include <gecode/int.hh>
 
@@ -49,7 +49,7 @@ namespace Gecode { namespace Int {
   public:
     /// The index
     int idx;
-    /// Thhe view
+    /// The view
     View view;
     /// Allocate memory for \a n index-view pairs
     static IdxView* allocate(Space& home, int n);

@@ -11,7 +11,14 @@ changelog.hh
 license.hh
 header.html
 autom4te.cache
+CMakeCache.txt
+CTestTestfile.cmake
+cmake_install.cmake
+CMakeFiles
+bin
 gecode/support/config.hpp
+tools/flatzinc/gecode.msc
+tools/flatzinc/gecode-gist.msc
 tools/flatzinc/mzn-gecode.bat
 tools/flatzinc/fzn-gecode
 tools/flatzinc/mzn-gecode
@@ -67,6 +74,7 @@ examples/graph-color
 examples/grocery
 examples/hamming
 examples/ind-set
+examples/job-shop
 examples/kakuro
 examples/knights
 examples/langford-number

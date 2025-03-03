@@ -43,7 +43,7 @@ namespace Gecode { namespace Int { namespace Sorted {
    *
    * Union-Find Implementation of F.Glover's matching algorithm.
    *
-   * The idea is to mimick a priority queue storing x-indices
+   * The idea is to mimic a priority queue storing x-indices
    * \f$[i_0,\dots, i_{n-1}]\f$, s.t. the upper domain bounds are sorted
    * \f$D_{i_0} \leq\dots\leq D_{i_{n-1}}\f$ where \f$ D_{i_0}\f$
    * is the top element
@@ -73,7 +73,7 @@ namespace Gecode { namespace Int { namespace Sorted {
     for (int i = 0; i < xs; i++) {
       // the upper bound of the x-node should be minimal
       int perm = tau[i];
-      // find the iteration where \tau(i) became a maching candidate
+      // find the iteration where \tau(i) became a matching candidate
       int iter = seq[perm].iset;
       if (iter<0)
         return false;

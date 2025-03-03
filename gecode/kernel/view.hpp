@@ -118,7 +118,7 @@ namespace Gecode {
 
     /// \name Ordering
     //@{
-    /// Whether this view comes before view \a y (arbitray order)
+    /// Whether this view comes before view \a y (arbitrary order)
     bool operator <(const ConstView& y) const;
     //@}
   };
@@ -216,7 +216,7 @@ namespace Gecode {
 
     /// \name Ordering
     //@{
-    /// Whether this view comes before view \a y (arbitray order)
+    /// Whether this view comes before view \a y (arbitrary order)
     bool operator <(const VarImpView& y) const;
     //@}
   };
@@ -313,7 +313,7 @@ namespace Gecode {
 
     /// \name Ordering
     //@{
-    /// Whether this view comes before view \a y (arbitray order)
+    /// Whether this view comes before view \a y (arbitrary order)
     bool operator <(const DerivedView<View>& y) const;
     //@}
   };
@@ -397,7 +397,7 @@ namespace Gecode {
   template<class View>
   forceinline typename View::VarImpType*
   ConstView<View>::varimp(void) const {
-    return NULL;
+    return nullptr;
   }
 #ifdef GECODE_HAS_CBS
   template<class View>
@@ -474,7 +474,7 @@ namespace Gecode {
   template<class Var>
   forceinline
   VarImpView<Var>::VarImpView(void)
-    : x(NULL) {}
+    : x(nullptr) {}
   template<class Var>
   forceinline
   VarImpView<Var>::VarImpView(VarImpType* y)

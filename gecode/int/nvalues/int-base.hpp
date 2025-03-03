@@ -168,7 +168,7 @@ namespace Gecode { namespace Int { namespace NValues {
 #ifndef NDEBUG
       // Initialize all to null pointers so that things crash ;-)
       for (int i=x.size(); i--; )
-        ovl_i[i] = NULL;
+        ovl_i[i] = nullptr;
 #endif
       // For each i there can be at most n_dis-1 entries in ovl_i[i]
       int* m = r.alloc<int>(n_dis*(n_dis-1));
@@ -278,7 +278,7 @@ namespace Gecode { namespace Int { namespace NValues {
 
     // Prune, if possible
     if (vs.size() + n_ind == y.max()) {
-      // Only values from the indepent set a can be taken
+      // Only values from the independent set a can be taken
       ViewRanges<IntView>* r_ind = r.alloc<ViewRanges<IntView> >(n_ind);
       for (int i=n_ind; i--; )
         r_ind[i] = ViewRanges<IntView>(x[ind[i]]);

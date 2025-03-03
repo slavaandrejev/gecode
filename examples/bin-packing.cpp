@@ -6,6 +6,9 @@
  *  Copyright:
  *     Christian Schulte, 2010
  *
+ *  Bugfixes provided by:
+ *     Florian Fontan <dev@florian-fontan.fr>
+ *
  *  This file is part of Gecode, the generic constraint
  *  development environment:
  *     http://www.gecode.org
@@ -58,7 +61,7 @@ namespace {
   public:
     /// Whether a valid specification has been found
     bool valid(void) const {
-      return data != NULL;
+      return data != nullptr;
     }
     /// Return maximal capacity of a bin
     int capacity(void) const {
@@ -75,10 +78,10 @@ namespace {
   protected:
     /// Find instance by name \a s
     static const int* find(const char* s) {
-      for (int i=0; name[i] != NULL; i++)
+      for (int i=0; name[i] != nullptr; i++)
         if (!strcmp(s,name[i]))
           return bpp[i];
-      return NULL;
+      return nullptr;
     }
     /// Compute lower bound
     int clower(void) const {
@@ -460,10 +463,11 @@ public:
       break;
     }
 
-    // Break symmetries
-    for (int i=1; i<n; i++)
-      if (spec.size(i-1) == spec.size(i))
-        rel(*this, bin[i-1] <= bin[i]);
+    // Break symmetries, only if not using CBDF
+    if (opt.branching() != BRANCH_CDBF)
+      for (int i=1; i<n; i++)
+        if (spec.size(i-1) == spec.size(i))
+          rel(*this, bin[i-1] <= bin[i]);
 
     // Pack items that require a bin for sure! (wlog)
     {
@@ -555,7 +559,7 @@ main(int argc, char* argv[]) {
   opt.solutions(0);
   opt.parse(argc,argv);
   if (!Spec(opt.instance()).valid()) {
-    std::cerr << "Error: unkown instance" << std::endl;
+    std::cerr << "Error: unknown instance" << std::endl;
     return 1;
   }
   IntMinimizeScript::run<BinPacking,BAB,InstanceOptions>(opt);
@@ -566,11 +570,11 @@ namespace {
 
   /*
    * Instances taken from:
-   * A. Scholl, R. Klein, and C. Jürgens: BISON: a fast hybrid procedure
+   * A. Scholl, R. Klein, and C. JÃ¼rgens: BISON: a fast hybrid procedure
    * for exactly solving the one-dimensional bin packing problem.
    * Computers & Operations Research 24 (1997) 627-645.
    *
-   * The item size have been sorted for simplicty.
+   * The item size have been sorted for simplicity.
    *
    */
 
@@ -20774,7 +20778,7 @@ namespace {
    * E. Falkenauer. A hybrid grouping genetic algorithm fir bin packing.
    * Journal of Heuristics, 2:5-30, 1996.
    *
-   * The item size have been sorted for simplicty and fractional capacities
+   * The item size have been sorted for simplicity and fractional capacities
    * have been converted to integers.
    *
    */
@@ -25378,7 +25382,7 @@ namespace {
     "t501_07", "t501_08", "t501_09", "t501_10", "t501_11", "t501_12", "t501_13",
     "t501_14", "t501_15", "t501_16", "t501_17", "t501_18", "t501_19",
 
-    NULL
+    nullptr
   };
 
 }

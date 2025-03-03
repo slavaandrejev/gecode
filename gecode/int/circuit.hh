@@ -31,8 +31,8 @@
  *
  */
 
-#ifndef __GECODE_INT_CIRCUIT_HH__
-#define __GECODE_INT_CIRCUIT_HH__
+#ifndef GECODE_INT_CIRCUIT_HH
+#define GECODE_INT_CIRCUIT_HH
 
 #include <gecode/int.hh>
 #include <gecode/int/distinct.hh>
@@ -78,7 +78,7 @@ namespace Gecode { namespace Int { namespace Circuit {
    * \brief "Value-consistent" circuit propagator
    *
    * Propagates value-consistent distinct, checks that
-   * the induced variable value graph is stronlgy connected, and
+   * the induced variable value graph is strongly connected, and
    * prunes too short cycles.
    *
    * Requires \code #include <gecode/int/circuit.hh> \endcode
@@ -111,7 +111,7 @@ namespace Gecode { namespace Int { namespace Circuit {
    * \brief "Domain consistent" circuit propagator
    *
    * Propagates domain consistent distinct, checks that
-   * the induced variable value graph is stronlgy connected, and
+   * the induced variable value graph is strongly connected, and
    * prunes too shot cycles.
    *
    * Requires \code #include <gecode/int/circuit.hh> \endcode

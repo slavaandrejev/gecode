@@ -262,16 +262,16 @@ namespace Gecode { namespace Int { namespace GCC {
     int minValue(void) const;
     /// Return largest bound of variables
     int maxValue(void) const;
-    /// Skip neigbouring array entries if their values do not differ
+    /// Skip neighbouring array entries if their values do not differ
     int skipNonNullElementsRight(int v) const;
-    /// Skip neigbouring array entries if their values do not differ
+    /// Skip neighbouring array entries if their values do not differ
     int skipNonNullElementsLeft(int v) const;
     //@}
     /// \name Update
     //@{
     /**
      * \brief Check whether the values in the
-     *        partial sum structure containting
+     *        partial sum structure containing
      *        the lower cardinality bounds differ
      *        from the actual lower bounds of the
      *        cardinalities.
@@ -279,7 +279,7 @@ namespace Gecode { namespace Int { namespace GCC {
     bool check_update_min(ViewArray<Card>& k);
     /**
      * \brief Check whether the values in the
-     *        partial sum structure containting
+     *        partial sum structure containing
      *        the upper cardinality bounds differ
      *        from the actual upper bounds of the
      *        cardinalities.
@@ -291,7 +291,7 @@ namespace Gecode { namespace Int { namespace GCC {
 
   template<class Card>
   forceinline
-  PartialSum<Card>::PartialSum(void) : sum(NULL), size(-1) {}
+  PartialSum<Card>::PartialSum(void) : sum(nullptr), size(-1) {}
 
   template<class Card>
   forceinline
@@ -315,7 +315,7 @@ namespace Gecode { namespace Int { namespace GCC {
     size  = elements.size() + holes + 5;
 
     // memory allocation
-    if (sum == NULL) {
+    if (sum == nullptr) {
       sum = home.alloc<int>(2*size);
     }
     int* ds  = &sum[size];
@@ -443,7 +443,7 @@ namespace Gecode { namespace Int { namespace GCC {
 
 
   /**
-   * \brief Container class provding information about the Hall
+   * \brief Container class providing information about the Hall
    *  structure of the problem variables.
    *
    *  This class is used to
@@ -475,9 +475,9 @@ namespace Gecode { namespace Int { namespace GCC {
      * \brief Hall set pointer
      *
      * If hall[i].h < i then the half-open interval
-     * [hall[h[i]].bounds,hall[i].bounds) is containd in a Hall
+     * [hall[h[i]].bounds,hall[i].bounds) is contained in a Hall
      * set.
-     * Otherwise holds a pointer to the Hall intervall it belongs to.
+     * Otherwise holds a pointer to the Hall interval it belongs to.
      */
     int h;
     /// Stable Set pointer
@@ -540,7 +540,7 @@ namespace Gecode { namespace Int { namespace GCC {
   /**
    *  \name Path minimum
    *
-   *  Returns the smalles reachable index starting from \a i.
+   *  Returns the smallest reachable index starting from \a i.
    * \ingroup GCCBndSup
    */
   //@{
