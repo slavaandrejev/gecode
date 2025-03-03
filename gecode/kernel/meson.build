@@ -70,3 +70,36 @@ gecodekernel_dep = declare_dependency(
   , include_directories: [project_inc]
   , dependencies: [gecodesupport_dep]
   )
+
+pkg.generate(
+    name: 'gecodekernel'
+  , filebase: 'gecodekernel'
+  , description: 'Gecode kernel'
+  , version: meson.project_version()
+  , libraries: gecodekernel_lib
+  , requires: ['gecodesupport']
+  , subdirs: 'gecode'
+  )
+
+subdir('branch')
+subdir('data')
+subdir('memory')
+subdir('propagator')
+subdir('trace')
+
+install_headers(
+    'archive.hpp'
+  , 'core.hpp'
+  , 'exception.hpp'
+  , 'gpi.hpp'
+  , 'macros.hpp'
+  , 'modevent.hpp'
+  , 'range-list.hpp'
+  , 'shared-object.hpp'
+  , 'shared-space-data.hpp'
+  , 'var.hpp'
+  , 'var-imp.hpp'
+  , 'var-type.hpp'
+  , 'view.hpp'
+  , subdir: 'gecode/kernel'
+  )

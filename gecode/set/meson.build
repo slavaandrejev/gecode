@@ -65,3 +65,57 @@ gecodeset_dep = declare_dependency(
       , gecodekernel_dep
       ]
   )
+
+pkg.generate(
+    name: 'gecodeset'
+  , filebase: 'gecodeset'
+  , description: 'Gecode finite set library'
+  , version: meson.project_version()
+  , libraries: gecodeset_lib
+  , requires: [
+        'gecodeint'
+      , 'gecodekernel'
+      ]
+  , subdirs: 'gecode'
+  )
+
+
+subdir('branch')
+subdir('channel')
+subdir('convex')
+subdir('distinct')
+subdir('element')
+subdir('int')
+subdir('ldsb')
+subdir('precede')
+subdir('rel')
+subdir('rel-op')
+subdir('sequence')
+subdir('trace')
+subdir('var')
+subdir('var-imp')
+subdir('view')
+
+install_headers(
+    'branch.hh'
+  , 'channel.hh'
+  , 'convex.hh'
+  , 'distinct.hh'
+  , 'element.hh'
+  , 'int.hh'
+  , 'ldsb.hh'
+  , 'precede.hh'
+  , 'rel.hh'
+  , 'rel-op.hh'
+  , 'sequence.hh'
+  , 'array.hpp'
+  , 'array-traits.hpp'
+  , 'branch.hpp'
+  , 'exception.hpp'
+  , 'int.hpp'
+  , 'limits.hpp'
+  , 'trace.hpp'
+  , 'var-imp.hpp'
+  , 'view.hpp'
+  , subdir: 'gecode/set'
+  )

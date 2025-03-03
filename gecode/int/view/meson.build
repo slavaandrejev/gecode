@@ -1,0 +1,16 @@
+install_headers(
+    'bool.hpp'
+  , 'bool-test.hpp'
+  , 'cached.hpp'
+  , 'constint.hpp'
+  , 'int.hpp'
+  , 'iter.hpp'
+  , 'minus.hpp'
+  , 'neg-bool.hpp'
+  , 'offset.hpp'
+  , 'print.hpp'
+  , 'rel-test.hpp'
+  , 'scale.hpp'
+  , 'zero.hpp'
+  , subdir: 'gecode/int/view'
+  )

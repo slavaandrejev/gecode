@@ -31,3 +31,38 @@ gecodeflatzinc_dep = declare_dependency(
       , gecodedriver_dep
       ]
   )
+
+pkg.generate(
+    name: 'gecodeflatzinc'
+  , filebase: 'gecodeflatzinc'
+  , description: 'FlatZinc interpreter'
+  , version: meson.project_version()
+  , libraries: gecodeflatzinc_lib
+  , requires: [
+        'gecodesearch'
+      , 'gecodeint'
+      , 'gecodeset'
+      , 'gecodefloat'
+      , 'gecodeminimodel'
+      , 'gecodegist'
+      , 'gecodedriver'
+      ]
+  , subdirs: 'gecode'
+  )
+
+install_headers(
+    'ast.hh'
+  , 'branch.hh'
+  , 'complete.hh'
+  , 'conexpr.hh'
+  , 'lastval.hh'
+  , 'option.hh'
+  , 'parser.hh'
+  , 'plugin.hh'
+  , 'registry.hh'
+  , 'symboltable.hh'
+  , 'varspec.hh'
+  , 'branch.hpp'
+  , 'parser.tab.hpp'
+  , subdir: 'gecode/flatzinc'
+  )

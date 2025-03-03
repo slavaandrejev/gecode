@@ -34,6 +34,7 @@ gecodegist_lib = library(
       , gecodesearch_dep
       , gecodeint_dep
       ]
+  , install: true
   )
 
 gecodegist_dep = declare_dependency(
@@ -44,4 +45,46 @@ gecodegist_dep = declare_dependency(
       , gecodesearch_dep
       , gecodeint_dep
       ]
+  )
+
+pkg.generate(
+    name: 'gecodegist'
+  , filebase: 'gecodegist'
+  , description: 'Gecode Interactive Search Tool'
+  , version: meson.project_version()
+  , libraries: gecodegist_lib
+  , requires: [
+        'gecodesearch'
+      , 'gecodeint'
+      ]
+  , subdirs: 'gecode'
+  )
+
+install_headers(
+    'drawingcursor.hh'
+  , 'gecodelogo.hh'
+  , 'layoutcursor.hh'
+  , 'mainwindow.hh'
+  , 'node.hh'
+  , 'nodecursor.hh'
+  , 'nodestats.hh'
+  , 'nodevisitor.hh'
+  , 'nodewidget.hh'
+  , 'preferences.hh'
+  , 'qtgist.hh'
+  , 'spacenode.hh'
+  , 'stopbrancher.hh'
+  , 'textoutput.hh'
+  , 'treecanvas.hh'
+  , 'visualnode.hh'
+  , 'drawingcursor.hpp'
+  , 'gist.hpp'
+  , 'layoutcursor.hpp'
+  , 'node.hpp'
+  , 'nodecursor.hpp'
+  , 'nodevisitor.hpp'
+  , 'spacenode.hpp'
+  , 'visualnode.hpp'
+  , 'zoomToFitIcon.hpp'
+  , subdir: 'gecode/gist'
   )

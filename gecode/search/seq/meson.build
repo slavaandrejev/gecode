@@ -1,0 +1,16 @@
+install_headers(
+    'bab.hh'
+  , 'dead.hh'
+  , 'dfs.hh'
+  , 'lds.hh'
+  , 'path.hh'
+  , 'pbs.hh'
+  , 'rbs.hh'
+  , 'bab.hpp'
+  , 'dfs.hpp'
+  , 'lds.hpp'
+  , 'path.hpp'
+  , 'pbs.hpp'
+  , 'rbs.hpp'
+  , subdir: 'gecode/search/seq'
+  )

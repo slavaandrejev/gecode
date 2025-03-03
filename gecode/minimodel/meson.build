@@ -32,3 +32,36 @@ gecodeminimodel_dep = declare_dependency(
       , gecodeset_dep
       ]
   )
+
+pkg.generate(
+    name: 'gecodeminimodel'
+  , filebase: 'gecodeminimodel'
+  , description: 'Gecode modeling support library for the enabled variable types'
+  , version: meson.project_version()
+  , libraries: gecodeminimodel_lib
+  , requires: [
+        'gecodeint'
+      , 'gecodefloat'
+      , 'gecodeset'
+      ]
+  , subdirs: 'gecode'
+  )
+
+install_headers(
+    'aliases.hpp'
+  , 'bool-expr.hpp'
+  , 'channel.hpp'
+  , 'exception.hpp'
+  , 'float-expr.hpp'
+  , 'float-rel.hpp'
+  , 'int-expr.hpp'
+  , 'int-rel.hpp'
+  , 'ipl.hpp'
+  , 'ldsb.hpp'
+  , 'matrix.hpp'
+  , 'optimize.hpp'
+  , 'reg.hpp'
+  , 'set-expr.hpp'
+  , 'set-rel.hpp'
+  , subdir: 'gecode/minimodel'
+  )

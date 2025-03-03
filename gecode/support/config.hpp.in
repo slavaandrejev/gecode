@@ -41,6 +41,8 @@
 #mesondefine GECODE_BUILD_DRIVER
 #mesondefine GECODE_BUILD_GIST
 
+#mesondefine forceinline
+
 /* Whether to build with default memory allocator */
 #mesondefine GECODE_ALLOCATOR
 

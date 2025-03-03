@@ -22,22 +22,6 @@ if get_option('buildtype') == 'release' or get_option('buildtype') == 'debugopti
     add_project_arguments('-DNDEBUG', language: ['cpp'])
 endif
 
-have_always_inline = cpp.compiles('''
-    inline __attribute__ ((__always_inline__)) void foo(void) {}
-    int main() {}
-''')
-have_force_inline = cpp.compiles('''
-    __forceinline void foo(void) {}
-    int main() {}
-''')
-if have_always_inline
-    add_project_arguments('-Dforceinline=inline __attribute__ ((__always_inline__))', language: ['cpp'])
-elif have_force_inline
-    add_project_arguments('-Dforceinline="__forceinline"', language: ['cpp'])
-else
-    add_project_arguments('-Dforceinline=""', language: ['cpp'])
-endif
-
 perl = find_program('perl')
 
 fs  = import('fs')

@@ -71,3 +71,102 @@ gecodeint_dep = declare_dependency(
   , include_directories: [project_inc]
   , dependencies: [gecodekernel_dep]
   )
+
+pkg.generate(
+    name: 'gecodeint'
+  , filebase: 'gecodeint'
+  , description: 'Gecode finite domain library'
+  , version: meson.project_version()
+  , libraries: gecodeint_lib
+  , requires: ['gecodekernel']
+  , subdirs: 'gecode'
+  )
+
+subdir('arithmetic')
+subdir('bin-packing')
+subdir('bool')
+subdir('branch')
+subdir('channel')
+subdir('circuit')
+subdir('count')
+subdir('cumulative')
+subdir('cumulatives')
+subdir('distinct')
+subdir('dom')
+subdir('element')
+subdir('exec')
+subdir('extensional')
+subdir('gcc')
+subdir('ldsb')
+subdir('linear')
+subdir('member')
+subdir('no-overlap')
+subdir('nvalues')
+subdir('order')
+subdir('precede')
+subdir('rel')
+subdir('sequence')
+subdir('sorted')
+subdir('task')
+subdir('trace')
+subdir('unary')
+subdir('var')
+subdir('var-imp')
+subdir('view')
+subdir('view-val-graph')
+
+install_headers(
+    'arithmetic.hh'
+  , 'bin-packing.hh'
+  , 'bool.hh'
+  , 'branch.hh'
+  , 'channel.hh'
+  , 'circuit.hh'
+  , 'count.hh'
+  , 'cumulative.hh'
+  , 'cumulatives.hh'
+  , 'distinct.hh'
+  , 'div.hh'
+  , 'dom.hh'
+  , 'element.hh'
+  , 'exec.hh'
+  , 'extensional.hh'
+  , 'gcc.hh'
+  , 'idx-view.hh'
+  , 'ldsb.hh'
+  , 'linear.hh'
+  , 'member.hh'
+  , 'no-overlap.hh'
+  , 'nvalues.hh'
+  , 'order.hh'
+  , 'precede.hh'
+  , 'rel.hh'
+  , 'sequence.hh'
+  , 'sorted.hh'
+  , 'support-values.hh'
+  , 'task.hh'
+  , 'unary.hh'
+  , 'val-set.hh'
+  , 'view-val-graph.hh'
+  , 'array.hpp'
+  , 'array-traits.hpp'
+  , 'branch.hpp'
+  , 'channel.hpp'
+  , 'div.hpp'
+  , 'exception.hpp'
+  , 'extensional.hpp'
+  , 'idx-view.hpp'
+  , 'int-set-1.hpp'
+  , 'int-set-2.hpp'
+  , 'ipl.hpp'
+  , 'irt.hpp'
+  , 'limits.hpp'
+  , 'propagator.hpp'
+  , 'reify.hpp'
+  , 'support-values.hpp'
+  , 'trace.hpp'
+  , 'val-set.hpp'
+  , 'var-imp.hpp'
+  , 'view.hpp'
+  , subdir: 'gecode/int'
+  )

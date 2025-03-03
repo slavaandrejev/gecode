@@ -62,6 +62,20 @@ if enable_gist
     conf.set('GECODE_BUILD_GIST', true)
 endif
 
+have_always_inline = cpp.compiles('''
+    inline __attribute__ ((__always_inline__)) void foo(void) {}
+    int main() {}
+''')
+have_force_inline = cpp.compiles('''
+    __forceinline void foo(void) {}
+    int main() {}
+''')
+if have_always_inline
+    conf.set('forceinline', 'inline __attribute__ ((__always_inline__))')
+elif have_force_inline
+    conf.set('forceinline', '__forceinline')
+endif
+
 conf.set('GECODE_FREELIST_SIZE_MAX32', get_option('with_freelist32_size_max'))
 conf.set('GECODE_FREELIST_SIZE_MAX64', get_option('with_freelist64_size_max'))
 conf.set('GECODE_HAS_THREADS', get_option('enable_thread'))
@@ -432,7 +446,9 @@ endif
 configure_file(
     input: 'config.hpp.in'
   , output: 'config.hpp'
-  , configuration: conf,
+  , configuration: conf
+  , install: true
+  , install_dir: get_option('includedir') / 'gecode' / 'support'
   )
 
 gecodesupport_lib_dependencies = []
@@ -456,4 +472,43 @@ gecodesupport_dep = declare_dependency(
     link_with: gecodesupport_lib
   , include_directories: [project_inc]
   , dependencies: gecodesupport_lib_dependencies
+  )
+
+pkg.generate(
+    name: 'gecodesupport'
+  , filebase: 'gecodesupport'
+  , description: 'Gecode support library'
+  , version: meson.project_version()
+  , libraries: gecodesupport_lib
+  , subdirs: 'gecode'
+  )
+
+subdir('thread')
+
+install_headers(
+    'allocator.hpp'
+  , 'auto-link.hpp'
+  , 'bitset.hpp'
+  , 'bitset-base.hpp'
+  , 'bitset-offset.hpp'
+  , 'block-allocator.hpp'
+  , 'cast.hpp'
+  , 'dynamic-array.hpp'
+  , 'dynamic-queue.hpp'
+  , 'dynamic-stack.hpp'
+  , 'exception.hpp'
+  , 'hash.hpp'
+  , 'heap.hpp'
+  , 'hw-rnd.hpp'
+  , 'int-type.hpp'
+  , 'macros.hpp'
+  , 'marked-pointer.hpp'
+  , 'random.hpp'
+  , 'ref-count.hpp'
+  , 'run-jobs.hpp'
+  , 'sort.hpp'
+  , 'static-stack.hpp'
+  , 'thread.hpp'
+  , 'timer.hpp'
+  , subdir: 'gecode/support'
   )

@@ -37,3 +37,9 @@ pkg.generate(
       ]
   , subdirs: 'gecode'
   )
+
+install_headers(
+    'options.hpp'
+  , 'script.hpp'
+  , subdir: 'gecode/driver'
+  )

@@ -25,3 +25,19 @@ endif
 if enable_flatzinc
     subdir('flatzinc')
 endif
+subdir('iter')
+
+install_headers(
+    'driver.hh'
+  , 'flatzinc.hh'
+  , 'float.hh'
+  , 'gist.hh'
+  , 'int.hh'
+  , 'iter.hh'
+  , 'kernel.hh'
+  , 'minimodel.hh'
+  , 'search.hh'
+  , 'set.hh'
+  , 'support.hh'
+  , subdir: 'gecode'
+  )
