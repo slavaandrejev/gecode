@@ -33,6 +33,7 @@ gecodegist_lib = library(
         qt6_dep
       , gecodesearch_dep
       , gecodeint_dep
+      , gecodefloat_dep
       ]
   , install: true
   )
@@ -44,6 +45,7 @@ gecodegist_dep = declare_dependency(
         qt6_dep
       , gecodesearch_dep
       , gecodeint_dep
+      , gecodefloat_dep
       ]
   )
 
