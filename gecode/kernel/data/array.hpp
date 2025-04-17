@@ -1556,8 +1556,11 @@ namespace Gecode {
   inline
   ArgArrayBase<T>::ArgArrayBase(const std::vector<T>& aa)
     : n(static_cast<int>(aa.size())),
-      capacity(n < onstack_size ? onstack_size : n), a(allocate(n)) {
-    heap.copy<T>(a,&aa[0],n);
+      capacity(n < onstack_size ? onstack_size : n), a(allocate(n))
+  {
+    if (!aa.empty()) {
+      heap.copy<T>(a,&aa[0],n);
+    }
   }
 
   template<class T>
